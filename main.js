@@ -16,37 +16,48 @@ function getComputerChoice () {
 function playRound (player, computer) {
     console.log(computer);
     if (player.toLowerCase() === computer) {
-        return `You chose ${player.toLowerCase()}. The computer chose ${computer}. It's a tie!`;
+        console.log(`You chose ${player.toLowerCase()}. The computer chose ${computer}. It's a tie!`);
+        return "tie";
     }
 
     else if (player.toLowerCase() === "rock" && computer == "paper") {
-        return `You chose ${player.toLowerCase()}. The computer chose ${computer}. You lose!`;
+        console.log(`You chose ${player.toLowerCase()}. The computer chose ${computer}. You lose!`);
+        return "lose";
     }
 
     else if (player.toLowerCase() === "rock" && computer == "scissors") {
-        return `You chose ${player.toLowerCase()}. The computer chose ${computer}. You win!`;
+        console.log(`You chose ${player.toLowerCase()}. The computer chose ${computer}. You win!`);
+        return "win";
     }
 
     else if (player.toLowerCase() === "paper" && computer == "scissors") {
-        return `You chose ${player.toLowerCase()}. The computer chose ${computer}. You lose!`;
+        console.log(`You chose ${player.toLowerCase()}. The computer chose ${computer}. You lose!`);
+        return "lose";
     }
 
     else if (player.toLowerCase() === "paper" && computer == "rock") {
-        return `You chose ${player.toLowerCase()}. The computer chose ${computer}. You win!`;
+        console.log(`You chose ${player.toLowerCase()}. The computer chose ${computer}. You win!`);
+        return "win";
     }
 
     else if (player.toLowerCase() === "scissors" && computer == "rock") {
-        return `You chose ${player.toLowerCase()}. The computer chose ${computer}. You lose!`;
+        console.log(`You chose ${player.toLowerCase()}. The computer chose ${computer}. You lose!`);
+        return "lose";
     }
 
     else if (player.toLowerCase() === "scissors" && computer == "paper") {
-        return `You chose ${player.toLowerCase()}. The computer chose ${computer}. You win!`;
+        console.log(`You chose ${player.toLowerCase()}. The computer chose ${computer}. You win!`);
+        return "win";
     }
 
     else {
-        return "something went wrong    ";
+        console.log("something went wrong    ");
     }
 
+}
+
+function game(playRound) {
+    
 }
 
 const playerSelection = "Rock";
