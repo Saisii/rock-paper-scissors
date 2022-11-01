@@ -51,7 +51,8 @@ function playRound (player, computer) {
     }
 
     else {
-        console.log("something went wrong    ");
+        console.log(`${player} is not a choice. You lose :(`);
+        return null;
     }
 
 }
@@ -88,7 +89,7 @@ function game() {
     
 }
 
-const playerSelection = "Rock";
+const playerSelection = prompt("Rock, Paper, or Scissors?");
 
 
 console.log(game());
