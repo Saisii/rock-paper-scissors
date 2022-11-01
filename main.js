@@ -60,7 +60,7 @@ function game() {
     let win = 0;
     let lose = 0;
     let tie = 0;
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 10; i++) {
         let result =playRound(playerSelection, getComputerChoice());
         if (result === "win") {
             win++;
@@ -73,7 +73,18 @@ function game() {
         }
     }
 
-    return `You won ${win} times, lost ${lose} times and tied ${tie} times`;
+    console.log(`You won ${win} times, lost ${lose} times and tied ${tie} times`);
+    if (win > lose) {
+        return "You win!!!!!";
+    }
+
+    else if (lose > win) {
+        return "You lost :(";
+    }
+
+    else if (win === lose) {
+        return "you tied. Everyone wins!!!";
+    }
     
 }
 
