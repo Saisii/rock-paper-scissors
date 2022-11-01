@@ -56,12 +56,30 @@ function playRound (player, computer) {
 
 }
 
-function game(playRound) {
+function game() {
+    let win = 0;
+    let lose = 0;
+    let tie = 0;
+    for (let i = 0; i < 5; i++) {
+        let result =playRound(playerSelection, getComputerChoice());
+        if (result === "win") {
+            win++;
+        } 
+        else if (result === "lose") {
+            lose++;
+        } 
+        else {
+            tie++;
+        }
+    }
+
+    return `You won ${win} times, lost ${lose} times and tied ${tie} times`;
     
 }
 
 const playerSelection = "Rock";
 
-console.log(playRound(playerSelection, getComputerChoice()));
+
+console.log(game());
 
 
