@@ -3,6 +3,10 @@ let win = 0;
 let lose = 0;
 let tie = 0;
 
+const wlsContainer = document.querySelector('#wls');
+const wlsContent = document.createElement('div');
+
+
 function getComputerChoice () {
     let outcome = Math.floor(Math.random() *3);
     if (outcome === 0) {
@@ -73,7 +77,8 @@ function playRound (player, computer) {
         getComputerChoice();
     }
 
-    console.log(`win: ${win}    lose: ${lose}   tie: ${tie}`);
+    wlsContent.textContent = (`win: ${win}    lose: ${lose}   tie: ${tie}`);
+    wlsContainer.appendChild(wlsContent);
 
 }
 
@@ -131,6 +136,10 @@ paperBtn.addEventListener('click', () => {
 scissorsBtn.addEventListener('click', () => {
     playRound("rock", computerChoice);
 })
+
+
+
+
 
     // console.log(`You won ${win} times, lost ${lose} times and tied ${tie} times`);
     // if (win > lose) {
