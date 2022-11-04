@@ -1,59 +1,79 @@
+let computerChoice;
+let win = 0;
+let lose = 0;
+let tie = 0;
+
 function getComputerChoice () {
     let outcome = Math.floor(Math.random() *3);
     if (outcome === 0) {
-        return "rock";
+        computerChoice = "rock";
+        console.log("computer choice is rock")
     }
     else if (outcome === 1) {
-        return "paper";
+        computerChoice = "paper";
+        console.log("computer choice is paper");
     }
     else {
-        return "scissors";
+        computerChoice = "scissors";
+        console.log("computer choice is scissors");
     }
 }
+
+getComputerChoice(); //sets up computer for it's first choice
 
 
 
 function playRound (player, computer) {
-    console.log(computer);
-    if (player.toLowerCase() === computer) {
-        console.log(`You chose ${player.toLowerCase()}. The computer chose ${computer}. It's a tie!`);
-        return "tie";
+    console.log("Computer chose " + computer);
+    console.log("You chose " + player);
+    if (player === computer) {
+        console.log(`You chose ${player}. The computer chose ${computer}. It's a tie!`);
+        getComputerChoice();
+        tie += 1;
     }
 
-    else if (player.toLowerCase() === "rock" && computer == "paper") {
-        console.log(`You chose ${player.toLowerCase()}. The computer chose ${computer}. You lose!`);
-        return "lose";
+    else if (player === "rock" && computer == "paper") {
+        console.log(`You chose ${player}. The computer chose ${computer}. You lose!`);
+        getComputerChoice();
+        lose += 1;
     }
 
-    else if (player.toLowerCase() === "rock" && computer == "scissors") {
-        console.log(`You chose ${player.toLowerCase()}. The computer chose ${computer}. You win!`);
-        return "win";
+    else if (player === "rock" && computer == "scissors") {
+        console.log(`You chose ${player}. The computer chose ${computer}. You win!`);
+        getComputerChoice();
+        win += 1;
     }
 
-    else if (player.toLowerCase() === "paper" && computer == "scissors") {
-        console.log(`You chose ${player.toLowerCase()}. The computer chose ${computer}. You lose!`);
-        return "lose";
+    else if (player === "paper" && computer == "scissors") {
+        console.log(`You chose ${player}. The computer chose ${computer}. You lose!`);
+        getComputerChoice();
+        lose += 1;
     }
 
-    else if (player.toLowerCase() === "paper" && computer == "rock") {
-        console.log(`You chose ${player.toLowerCase()}. The computer chose ${computer}. You win!`);
-        return "win";
+    else if (player === "paper" && computer == "rock") {
+        console.log(`You chose ${player}. The computer chose ${computer}. You win!`);
+        getComputerChoice();
+        win += 1;
     }
 
-    else if (player.toLowerCase() === "scissors" && computer == "rock") {
-        console.log(`You chose ${player.toLowerCase()}. The computer chose ${computer}. You lose!`);
-        return "lose";
+    else if (player === "scissors" && computer == "rock") {
+        console.log(`You chose ${player}. The computer chose ${computer}. You lose!`);
+        getComputerChoice();
+        lose += 1;
     }
 
-    else if (player.toLowerCase() === "scissors" && computer == "paper") {
-        console.log(`You chose ${player.toLowerCase()}. The computer chose ${computer}. You win!`);
-        return "win";
+    else if (player === "scissors" && computer == "paper") {
+        console.log(`You chose ${player}. The computer chose ${computer}. You win!`);
+        getComputerChoice();
+        win += 1;
     }
 
     else {
         console.log(`${player} is not a choice. You lose :(`);
-        return null;
+        getComputerChoice();
     }
+
+    console.log(`win: ${win}    lose: ${lose}   tie: ${tie}`);
 
 }
 
@@ -62,7 +82,7 @@ function playRound (player, computer) {
 //     let lose = 0;
 //     let tie = 0;
 //     // for (let i = 0; i < 5; i++) {
-//         let result =playRound(playerSelection, getComputerChoice());
+//         let result =playRound(playerSelection, computerChoice);
 //         if (result === "win") {
 //             win++;
 //         } 
@@ -75,33 +95,42 @@ function playRound (player, computer) {
     // }
 
 
-    //Event listener for each selection
+//Event listener for each selection
 
-    let playerSelection; //which selection the player chooses after each click
+//which selection the player chooses after each click
 
-    function chooseRock() {
-        playerSelection = "rock";
-        console.log("I chose rock");
-    }
-
-    function choosePaper() {
-        playerSelection = "paper";
-        console.log("I chose paper");
-    }
-
-    function chooseScissors() {
-        playerSelection = "scissors";
-        console.log("I chose scissors");
-    }
-
-
-    const rockBtn = document.querySelector("#rock");
-    const paperBtn = document.querySelector('#paper');
-    const scissorsBtn = document.querySelector('#scissors');
+// function chooseRock() {
     
-    rockBtn.addEventListener('click', chooseRock);
-    paperBtn.addEventListener('click', choosePaper);
-    scissorsBtn.addEventListener('click', chooseScissors);
+//     console.log("I chose rock");
+//     return "rock";
+// }
+
+// function choosePaper() {
+    
+//     console.log("I chose paper");
+//     return "paper";
+// }
+
+// function chooseScissors() {
+    
+//     console.log("I chose scissors");
+//     return "scissors";
+// }
+
+
+const rockBtn = document.querySelector("#rock");
+const paperBtn = document.querySelector('#paper');
+const scissorsBtn = document.querySelector('#scissors');
+
+rockBtn.addEventListener('click', () => {
+    playRound("rock", computerChoice);
+})
+paperBtn.addEventListener('click', () => {
+    playRound("rock", computerChoice);
+})
+scissorsBtn.addEventListener('click', () => {
+    playRound("rock", computerChoice);
+})
 
     // console.log(`You won ${win} times, lost ${lose} times and tied ${tie} times`);
     // if (win > lose) {
@@ -118,7 +147,7 @@ function playRound (player, computer) {
     
 // }
 
-// const playerSelection = prompt("Rock, Paper, or Scissors?");
+// const return prompt("Rock, Paper, or Scissors?");
 
 
 // console.log(game());
