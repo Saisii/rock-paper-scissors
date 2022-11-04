@@ -80,47 +80,40 @@ function playRound (player, computer) {
     wlsContent.textContent = (`win: ${win}    lose: ${lose}   tie: ${tie}`);
     wlsContainer.appendChild(wlsContent);
 
+    if (win >= 5 || lose >= 5) {
+
+        const finalScore = document.createElement('div');
+
+        
+        finalScore.textContent = (`The final score is ${win} to ${lose}`);
+        wlsContainer.appendChild(finalScore);
+
+        if (win > lose) {
+            const result = document.createElement('div');
+
+            result.textContent = ('You win!')
+            wlsContainer.appendChild(result);
+
+            win = 0;
+            lose = 0;
+            tie = 0;
+        }
+
+        else if (lose > win) {
+            const result = document.createElement('div');
+
+            result.textContent = ('You lose!')
+
+            wlsContainer.appendChild(result);
+
+            win = 0;
+            lose = 0;
+            tie = 0;
+        }
+    }
+
 }
 
-// function game() {
-//     let win = 0;
-//     let lose = 0;
-//     let tie = 0;
-//     // for (let i = 0; i < 5; i++) {
-//         let result =playRound(playerSelection, computerChoice);
-//         if (result === "win") {
-//             win++;
-//         } 
-//         else if (result === "lose") {
-//             lose++;
-//         } 
-//         else {
-//             tie++;
-//         }
-    // }
-
-
-//Event listener for each selection
-
-//which selection the player chooses after each click
-
-// function chooseRock() {
-    
-//     console.log("I chose rock");
-//     return "rock";
-// }
-
-// function choosePaper() {
-    
-//     console.log("I chose paper");
-//     return "paper";
-// }
-
-// function chooseScissors() {
-    
-//     console.log("I chose scissors");
-//     return "scissors";
-// }
 
 
 const rockBtn = document.querySelector("#rock");
@@ -137,28 +130,5 @@ scissorsBtn.addEventListener('click', () => {
     playRound("rock", computerChoice);
 })
 
-
-
-
-
-    // console.log(`You won ${win} times, lost ${lose} times and tied ${tie} times`);
-    // if (win > lose) {
-    //     return "You win!!!!!";
-    // }
-
-    // else if (lose > win) {
-    //     return "You lost :(";
-    // }
-
-    // else if (win === lose) {
-    //     return "you tied. Everyone wins!!!";
-    // }
-    
-// }
-
-// const return prompt("Rock, Paper, or Scissors?");
-
-
-// console.log(game());
 
 
