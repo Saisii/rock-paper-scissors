@@ -91,7 +91,9 @@ function playRound (player, computer) {
         if (win > lose) {
             const result = document.createElement('div');
 
-            result.textContent = ('You win!')
+            result.textContent = ('You win!');
+            result.classList.add = ('result');
+            
             wlsContainer.appendChild(result);
 
             win = 0;
@@ -103,6 +105,7 @@ function playRound (player, computer) {
             const result = document.createElement('div');
 
             result.textContent = ('You lose!')
+            result.classList.add = ('result');
 
             wlsContainer.appendChild(result);
 

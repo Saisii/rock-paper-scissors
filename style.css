@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    flex-direction: column;
+    font-size: 40px;
+    background-color: #7CB9E8;
+}
+
+
+.gameButton {
+    display: flex;
+    gap: 16px;
+    height:50vh;
+}
+
+button {
+    flex: 1;
+    align-self: flex-end;
+    height: 100px;
+    margin-bottom: 50px;
+    font-size: 40px;
+    border-width: 5px;
+    border-color: black;
+}
+
+#wls {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+}
+
